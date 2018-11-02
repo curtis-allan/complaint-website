@@ -6,11 +6,13 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import {Button, Paper, Grid} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import Form from '../components/form';
 
 const styles = theme => ({
   root: {
     width: '90%',
     margin: '0 auto',
+    textAlign: 'center'
   },
   button: {
     marginRight: theme.spacing.unit,
@@ -82,11 +84,12 @@ class HorizontalLinearStepper extends React.Component {
             );
           })}
         </Stepper>
+        <Form step={activeStep}></Form>
         <div>
           {activeStep === steps.length ? (
             <div>
-              <Typography className={classes.instructions}>
-                All steps completed - you&quot;re finished!
+              <Typography variant='h6'>
+                All steps completed - you're finished!
               </Typography>
               <Button onClick={this.handleReset} className={classes.button}>
                 Reset
@@ -94,7 +97,6 @@ class HorizontalLinearStepper extends React.Component {
             </div>
           ) : (
             <div>
-              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
               <div>
                 <Button
                   disabled={activeStep === 0}
@@ -109,7 +111,7 @@ class HorizontalLinearStepper extends React.Component {
                   onClick={this.handleNext}
                   className={classes.button}
                 >
-                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                  {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
                 </Button>
               </div>
             </div>

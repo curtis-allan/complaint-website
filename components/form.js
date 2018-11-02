@@ -6,7 +6,8 @@ const styles = theme => ({
     container: {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      padding: '100px'
     },
     textField: {
       marginLeft: theme.spacing.unit,
@@ -22,18 +23,27 @@ const styles = theme => ({
   });
 
 const form = (props) => {
-    const {classes} = props;
+    const {classes, step} = props;
     return (
-        <Grid item xs>
-        <Paper>
     <form className={classes.container} noValidate>
-            <TextField className={classes.textField} label="Name" margin="normal" required/>
-            <TextField className={classes.textField} label="Email" margin="normal" required/>
-            <TextField className={classes.textField} label="Description" helperText="Enter the issue details..." margin="normal" required/>
-            <Button />
+    {step === 0 && (
+        <>
+            <TextField className={classes.textField} label="Name" margin="normal" />
+            <TextField className={classes.textField} label="Email" margin="normal"/>
+            <TextField className={classes.textField} label="Phone" margin="normal"/>
+            </>
+    )}
+        {step === 1 && (
+        <>
+            <TextField className={classes.textField} label="Description" margin="normal"/>
+            </>
+    )}
+        {step === 2 && (
+        <>
+            <TextField className={classes.textField} label="Evidence" margin="normal"/>
+            </>
+    )}
     </form>
-    </Paper>
-    </Grid>
 )
     }
 

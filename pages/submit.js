@@ -9,10 +9,9 @@ const submit = () => (
   <div>
     <Head title="Submit A Complaint" />
     <Nav />
-    <Grid container spacing={24}>
+    <Grid container spacing={40}>
     <Stepper />
     </Grid>
-    <Form />
   </div>
 )
 

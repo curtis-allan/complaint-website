@@ -1,5 +1,6 @@
 // Required Imports
 const express = require("express");
+const bodyParser = require("body-parser");
 const port = 5000;
 
 // Add auth routes /me and /token for login using JWT most likely
@@ -8,9 +9,9 @@ const port = 5000;
 
 const app = express();
 
-app.use(express.json());
+app.use(bodyParser.json());
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -22,9 +23,8 @@ app.use((req, res, next) => {
 });
 
 app.post("/api", (req, res) => {
-  const { body } = req;
-  console.log(body);
-  res.send(body);
+  console.log(req.body);
+  res.send(req.body);
 });
 
 app.listen(port, console.log("Server running on port 5000"));

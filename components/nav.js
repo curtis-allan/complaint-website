@@ -42,13 +42,6 @@ const navBar = props => {
           <Link href="/submit">
             <Button color="inherit">Submit a complaint</Button>
           </Link>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
